@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gerants{% endblock %}
+
+{% block body %}
+    <h1>Gerants</h1>
+
+   
+            <div class='adminListe'>
+        
+                <p>{{ gerant.id }}</p>
+            
+                
+                <p>{{ gerant.email }}</p>
+           
+      
+                <p>{{ gerant.roles ? gerant.roles|json_encode : '' }}</p>
+         
+    
+         
+          
+                <p>{{ gerant.nom }}</p>
+       
+  
+                <p>{{ gerant.prenom }}</p>
+            </div>
+
+    <a href="{{ path('app_gerants_index') }}">Retour</a>
+
+    <a href="{{ path('app_gerants_edit', {'id': gerant.id}) }}">Mofifier</a>
+
+    {{ include('gerants/_delete_form.html.twig') }}
+{% endblock %}

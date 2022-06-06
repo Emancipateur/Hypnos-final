@@ -1,0 +1,95 @@
+.calendarContent{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 1rem;
+margin-top: 2rem;
+
+h1{
+    color :$white;
+}
+
+.reservationButton{
+    background: $white;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+    text-align: center;
+	font-weight: 700;
+	width: 100%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+}
+
+}
+
+.reservationNewDetails{
+	text-align: center;
+color: $white;
+margin-bottom: 2rem;
+font-size: 1.3rem;
+// border : 1px solid black;
+background-color: #5C5696;
+	
+padding: 1rem;
+border-radius: 24px;
+}
+
+
+#reservation_suites{
+    width: 100%;
+    background: $white;
+    text-align: center;
+    appearance: none;
+
+
+}
+
+.reservationSucessContent{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items : center;
+	text-align: center;
+
+
+	h1{
+		color: $white;
+	}
+}
+
+.reservationSucess{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items : center;
+	border: 1px solid $white;
+	border-radius: 25px;
+	margin: 1rem;
+	padding: 1rem;
+}
+
+
+@media screen and (min-width: 768px) {
+	.calendarContent {
+// height: 80vh;
+
+h1{
+    color :$white;
+	margin-bottom: 2rem;
+}
+.reservationNewDetails{
+	margin-top: 2rem;
+
+
+	}
+  
+	}
+  }

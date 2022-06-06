@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suites index{% endblock %}
+
+{% block body %}
+    <h1>Suites index</h1>
+
+
+     {% for suite in suites %}
+
+       
+
+            <div class='adminListe'>
+                <p>id :{{ suite.id }}</p>
+                <p>{{ suite.titre }}</p>
+                <p class='suiteDescriptionAdmin'>{{ suite.description }}</p>
+                <p>prix: {{ suite.prix }}</p>
+                <p>{{ suite.lien }}</p>
+                <div>
+                    <a href="{{ path('app_suites_show', {'id': suite.id}) }}">Voir</a>
+                    <a href="{{ path('app_suites_edit', {'id': suite.id}) }}">Modifier</a>
+                </div>
+            
+
+    
+
+  
+   
+    <div class="imageSuiteAdmin">
+                       {% for i in suite.images %}             
+<img src="{{ asset('./uploads/'~i.titre) }}" alt="" width="150">
+    {% endfor %}
+    </div>
+    </div>
+        {% endfor %}
+    
+
+    <a href="{{ path('app_suites_new') }}">Create new</a>
+{% endblock %}

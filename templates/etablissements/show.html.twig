@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etablissements
+{% endblock %}
+
+{% block body %}
+	<div class="gerantEtablissement">
+	
+		<h1>{{ etablissement.nom }}</h1>
+
+			<div	 class="etablissementVilleAdresse">{{ etablissement.ville }}
+				-
+				{{ etablissement.adresse }}</div>
+
+		<img src="{{ asset('./uploads/'~etablissement.image[0].titre) }}" alt="" width="100%">
+
+
+		<div class="gerantEtablissementContent">
+
+
+			<p>{{ etablissement.description }}</p>
+		</div>
+
+	</div>
+
+
+	<div class="gerantContent">
+		<h2 style='color:white;'>Nos suites</h2>
+
+
+		{% for suite in etablissement.suite %}
+			<div class="gerantSuite">
+				<h3 class='suiteTitre'>{{ suite.titre }}</h3>
+				<div
+					class="gerantImageSuite">
+			
+					<img class='imgSuiteListe'src="{{ asset('./uploads/'~suite.images[0].titre) }}" alt="Image_suite" width="100%">
+				</div>
+				<p class='suiteDescriptionListe'>{{ suite.description }}</p>
+				<div class="tarif">
+					<p>Tarif :
+						{{ suite.prix }}
+						€ / Nuit
+					</p>
+				</div>
+				<div class="lienFlex">
+				<div class="lien">
+				<a href="{{ path('app_suites_show', {'id': suite.id}) }}">Voir la suite</a>
+				</div>
+				<div class="lien">
+				<a href="{{ path('app_reservation_new', {'id': suite.id}) }}">Reserver</a>
+					</div>
+					</div>
+
+			</div>
+
+		{% endfor %}
+
+
+
+</div>
+
+	{% endblock %}

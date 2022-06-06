@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation index{% endblock %}
+
+{% block body %}
+    <h1>Reservation index</h1>
+
+        {% for reservation in reservations %}
+  
+            <div class='adminListe'>
+                <p>{{ reservation.id }}</p>
+                <p>Suite : {{ reservation.suites }}</p>
+                <p>Etablissement : {{ reservation.suites.etablissements.nom}}</p>
+                <p>Debut : {{ reservation.debut ? reservation.debut|date('Y-m-d') : '' }}</p>
+                <p>Fin : {{ reservation.fin ? reservation.fin|date('Y-m-d') : '' }}</p>
+                <p>Client : {{ reservation.clients }}          <a href="{{ path('app_clients_admin_show', {'id': reservation.clients.id}) }}">Accéder au clients</a></p>
+                <p>
+      
+             {{ include('reservation/_delete_form.html.twig') }}
+
+                </p>
+            </div>
+ 
+         
+        {% endfor %}
+   
+    {# <a href="{{ path('app_reservation_new') }}">Create new</a> #}
+{% endblock %}

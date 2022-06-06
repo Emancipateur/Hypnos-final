@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clients index{% endblock %}
+
+{% block body %}
+    <h1>Clients index</h1>
+
+ 
+        {% for client in clients %}
+            <div class='adminListe'>
+                <p>Id :{{ client.id }}</p>
+                <p>{{ client.email }}</p>
+                <p>{{ client.roles ? client.roles|json_encode : '' }}</p>
+                {# <td>{{ client.password }}</td> #}
+                <div>
+                    <a href="{{ path('app_clients_admin_show', {'id': client.id}) }}">Voir</a>
+                    <a href="{{ path('app_clients_edit', {'id': client.id}) }}">Modifier</a>
+                </div>
+            </div>
+        {% else %}
+            
+        {% endfor %}
+  
+
+    <a href="{{ path('app_clients_new') }}">Create new</a>
+{% endblock %}

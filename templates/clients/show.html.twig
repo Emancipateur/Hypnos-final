@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clients{% endblock %}
+
+{% block body %}
+
+
+<div class="clientHome">
+    <h1>Espace Client</h1>
+<p>Votre Email : {{client.email}}</p>
+{% for reservation in client.reservation|sort|reverse %}
+
+<div class="reservationClient">
+<h2>Votre réservation</h2>
+<p>Numéro de réservation : {{reservation.id}}</p>
+<p>Du : {{reservation.debut|date("m/d/Y") }} au   {{reservation.fin|date("m/d/Y") }}</p>
+<p>Suite : {{reservation.suites}}         <a href="{{ path('app_suites_show', {'id': reservation.suites.id}) }}">Voir la suite</a></p>
+<p>Etablissement : {{reservation.suites.etablissements}} <a href="{{ path('app_etablissements_show', {'id': reservation.suites.etablissements.id}) }}">Voir l'Établissement</a></p>
+
+
+
+
+<form method="post" action="{{ path('app_reservation_delete_by_client', {'id': reservation.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir annuler cette réservation, ceci annulera définitevement votre réservation ');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ reservation.id) }}">
+    <input type="hidden" name="client_id" value={{client.id}}>
+    <button class="btn">Annuler cette réservation</button>
+</form>
+
+</div>
+
+    
+{% else %}
+    <p>Vous n'avez aucune réservation en cours</p>
+{% endfor %}
+
+</div>
+
+
+{% endblock %}
