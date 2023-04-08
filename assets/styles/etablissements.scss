@@ -1,5 +1,10 @@
 .etablissement{
     background: $purplegradient;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
     .etablissementContent{
         display: flex;
         flex-direction: column;
@@ -9,11 +14,15 @@
         background-color: #333;
         color: #fff;
         margin-bottom: 0.5rem;
-        // gap:1rem;
+      width: 45%;
         .etablissementVilleAdresse{
             justify-content: space-around;
             font-size: 0.8rem;
         }
+
+
+
+
 
 .etablissementTop{
    padding: 1rem;
@@ -51,7 +60,10 @@
    
 }
 
-
+.imgEtablissementShow{
+    width: 100%;
+    
+            }
 
 @media (min-width: 1250px) {
     .etablissementTop{
@@ -69,4 +81,9 @@
     .suiteDescriptionListe{
         width: 70%;
     }
+
+    .imgEtablissementShow{
+        width: 80%;
+        
+                }
 }

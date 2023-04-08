@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hypnos
+{% endblock %}
+
+{% block body %}
+
+	<head>
+		<script>
+			if (screen.width <= 1024) {
+document.location = "./mobile";
+}
+
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	</head>
+
+
+	<div class="etablissement_desktop">
+
+		{% for etablissement in etablissements %}
+			{% if loop.first %}
+				{% for i in etablissement.image %}
+					<div class="image_desktop active" style="background: url({{ asset('./uploads/'~i.titre) }} ) center/cover;">
+					{% endfor %}
+				{% else %}
+
+					{% for i in etablissement.image %}
+						<div class="image_desktop " style="background: url({{ asset('./uploads/'~i.titre) }} ) center/cover;">
+
+						{% endfor %}
+					{% endif %}
+					<div class="text-container">
+						<div class="text">
+
+							<div class="etablisementNomAdresseVille">
+								<h3>{{ etablissement.nom }}</h3>
+								<p>{{ etablissement.ville }}</p>
+								<p>{{ etablissement.adresse }}</p>
+							</div>
+
+
+							<p>{{ etablissement.description }}</p>
+							<div class="lienEtablissement">
+								<a href="{{ path('app_etablissements_show', {'id': etablissement.id}) }}">Voir l'établissement & ses suites</a>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+			{% endfor %}
+		</div>
+
+		<script>
+			$(".image_desktop").click(function () {
+$(".image_desktop").removeClass("active");
+$(this).addClass("active");
+})
+		</script>
+	{% endblock %}

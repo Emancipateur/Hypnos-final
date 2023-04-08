@@ -1,19 +1,22 @@
 .lienFlexAdmin{
 display: flex;
 flex-direction: column;
+align-items: center;
+margin-top: 5rem;
 
-//     .lien{
+    .lien{
 
-//         margin: 2rem;
-//         text-align: center;
-//         font-size: 1.2rem;
-//         border: 1px solid #FFF;
-//         padding: 0.7rem;
-//         border-radius: 8px;
-//         display: flex;
-// justify-content: center; /* align horizontal */
-// align-items: center
-//     }
+        margin: 1rem;
+        text-align: center;
+        font-size: 1.2rem;
+        border: 1px solid #FFF;
+        padding: 0.7rem;
+        border-radius: 8px;
+        width: 50%;
+        display: flex;
+justify-content: center; /* align horizontal */
+align-items: center
+    }
 }
 
 .imageSuiteAdmin{
